@@ -1,11 +1,12 @@
+
 import React, { useState } from 'react';
 import { KeyboardAvoidingView, View, Text, TextInput, Alert} from 'react-native';
 import { MaterialIcons, Entypo } from "@expo/vector-icons";
-import { syles } from "./styles"
+import { styles } from "./styles"
 import { colors } from "../../styles/colors";
-import { componentButtonInterface } from '../../navigations/login.navigation';
+import { ComponentButtonInterface } from '../../components';
 import { LoginTypes } from '../../navigations/login.navigation';
-import { styles } from '../../components/ButtonInterface/styles';
+
 
 export interface IAuthenticate {
     email?: string;
@@ -26,36 +27,38 @@ export function Login({ navigation }: LoginTypes){
     function handleChange(item: IAuthenticate){
         setData({...data, ...item});
     }
+   
     return(
         <View style={styles.container}>
          <KeyboardAvoidingView>
-            <Text style={styles.tittle}>Login</Text>
+            <Text style={styles.title}>Please Sing In</Text>
             <View style={styles.formRow}>
                 <MaterialIcons name="email" style={styles.icon} />
                 <TextInput
-                placeholderTextColor={colors.third}
+                placeholderTextColor={colors.black}
                 style={styles.input}
                 placeholder="Email"
                 keyboardType="email-address"
-                autoCaptalize="none"
+                autoCapitalize="none"
                 onChangeText={(i) => handleChange ({ email: i})}
                 />
             </View>
             <View style={styles.formRow}>
                 <Entypo name="key" style={styles.icon}/>
                 <TextInput
-                placeholderTextColor={colors.third}
+                placeholderTextColor={colors.black}
                 style={styles.input}
                 placeholder="Senha"
                 secureTextEntry={true}
-                autoCaptalize="none"
+                autoCapitalize="none"
                 onChangeText={(i) => handleChange ({ password: i})}
                 />
             </View>
-            <ComponentButtonInterface tittle='Login' type='primary' onPressI={handleSignIn} />
-            <ComponentButtonInterface tittle='Cadastre-se' type='secondary' onPressI={handleRegister} />
+            <ComponentButtonInterface title='Login' type='secondary' onPressI={handSingIn} />
+            <ComponentButtonInterface title='Cadastre-se' type='secondary' onPressI={handleRegister} />
          </KeyboardAvoidingView>
          </View>
+      
     );
         
 }
