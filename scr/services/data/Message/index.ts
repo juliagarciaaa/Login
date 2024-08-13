@@ -1,19 +1,27 @@
 import { api } from "../../api"
 export interface IMessage {
-    tittle: string
+    title: string
     message: string
 }
-export interface IresponseMessage {
+export interface IResponseMessage {
     id: number
     user_id: number
-    tittle: string
+    title: string
     message: string
     created_at: string
+    user:{
+        id: number
+        name: string
+        email: string
+    }
 }
 
 class MessageData {
     index(){
-        return api.get<IresponseMessage[]>('/message')
+        return api.get<IResponseMessage[]>('/message')
+    }
+    store( data: IMessage){
+        return api.post('/message', data)
     }
 }
 export default new MessageData()

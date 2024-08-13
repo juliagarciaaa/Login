@@ -1,5 +1,6 @@
 import { StyleSheet } from "react-native";
 import { colors } from '../../styles/colors';
+import { Colors } from "react-native/Libraries/NewAppScreen";
 export const styles = StyleSheet.create({
     container:{
         flex: 1,
@@ -14,6 +15,8 @@ export const styles = StyleSheet.create({
     },
     itemText: {
         fontSize: 20,
-        padding: 10
+        color: colors.white,
+        padding: 10,
+        backgroundColor: colors.secondary
     }
 })

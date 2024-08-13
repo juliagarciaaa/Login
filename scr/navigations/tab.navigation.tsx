@@ -1,8 +1,10 @@
 import { createBottomTabNavigator, BottomTabNavigationProp } from "@react-navigation/bottom-tabs";
-import { ScreenMensagem, ScreenPerfil } from '../screens'
-import { colors } from '../styles/colors';
+import { MessageNavigation } from './message.navigation';
 import { AntDesign, Ionicons } from '@expo/vector-icons';
+import { colors } from '../styles/colors';
+import { Perfil } from "../screens/Perfil";
 import React from 'react';
+
 
 
 type TabParamList = {
@@ -25,14 +27,14 @@ export function TabNavigation() {
             tabBarInactiveTintColor: colors.white,
         }}
         >
-            <Tab.Screen name="Perfil" component={ScreenPerfil} 
+            <Tab.Screen name="Perfil" component={Perfil} 
             options={{
                 tabBarIcon: () => (
                     <Ionicons name="person" size={24} color={colors.white} />
                 ),
             }}
             />
-            <Tab.Screen name="Mensagem" component={ScreenMensagem} 
+            <Tab.Screen name="Mensagem" component={MessageNavigation} 
             options={{
                 tabBarIcon: () => (
                     <AntDesign name="message1" size={24} color={colors.white}/>
