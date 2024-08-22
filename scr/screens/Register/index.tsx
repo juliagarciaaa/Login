@@ -27,8 +27,8 @@ export function Register({ navigation }: LoginTypes) {
                 navigation.navigate("Login")
             } catch (error) {
                 const err = error as AxiosError
-                const msg = err.response?.data as string
-                Alert.alert(msg)
+                console.log(err.response?.data)
+                
             }
            setLoading(false)
         } else {
@@ -79,7 +79,7 @@ export function Register({ navigation }: LoginTypes) {
                     />
                 </View>
                 <ComponentButtonInterface title='Salvar' type='secondary' onPressI={handleRegister} />
-                <ComponentButtonInterface title='Voltar' type='primary' onPressI={handleGoBack} />
+                <ComponentButtonInterface title='Voltar' type='secondary' onPressI={handleGoBack} />
             </KeyboardAvoidingView>
         </View>
     );
